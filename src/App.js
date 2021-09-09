@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import illustration from './resources/illus_lalaland.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
@@ -15,7 +15,9 @@ class App extends React.Component{
       questionNb: 0,
       progress: 5,
       score: 0,
-      color: colors[0]
+      color: colors[0],
+      result: 'chachacha'
+
     }
 
     this.next = this.next.bind(this)
@@ -33,26 +35,57 @@ class App extends React.Component{
   render() {
     return (
       <div style={{color: this.state.color}}>
-        <Header style={{color: this.state.color}} />
+        <Header />
+        <Introduction style={{color: this.state.color, borderColor: this.state.color}} />
+        <div className="test">
         <Questionnaire question={questionsList[this.state.questionNb].question} />
-
         {questionsList[this.state.questionNb].answers.map(answer => (
         <button onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}}>
           {answer}
         </button>
       ))}
-
         <ProgressBar now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "4px"}}/>
+        </div>
+        <Result result={this.state.result} style={{color: this.state.color, borderColor: this.state.color}}/>
         <Footer />
       </div>
     )
   }
 }
+
+
 class Questionnaire extends React.Component {
   render() {
     return (
       <div>
-        <h2 style={this.props.color}>{this.props.question}</h2>  
+        <h2>{this.props.question}</h2>  
+      </div>
+    )
+  }
+}
+
+class Introduction extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>description</p>
+        <button style={this.props.style}>I want to dance</button>
+        <figure>
+        <img src={illustration} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></img>
+        <figcaption>source: wallpaperflare.com</figcaption>
+        </figure>     
+      </div>
+    )
+  }
+}
+
+class Result extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2 style={this.props.color}>Your social dance style is: </h2>
+        <p className="result">{this.props.result}</p>
+        <button style={this.props.style}>take the questionnaire again</button>
       </div>
     )
   }
