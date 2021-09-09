@@ -2,14 +2,14 @@
 
 //colors
 
+$white: #FDFDFE;
+
 //fonts
 
 @font-face {
     font-family: 'Gamine';
     src: url(./fonts/Gamine.ttf);
     font-weight: normal;
-    /* other formats include: 'woff2', 'truetype, 'opentype',
-                              'embedded-opentype', and 'svg' */
 }
 
 $gamine: "Gamine", sans-serif;
@@ -30,3 +30,8 @@ $century: "Century Gothic", sans-serif;
       font-family: $century;
     }
   }
+
+  
+.progress-bar {
+    background-color: $white !important;
+}

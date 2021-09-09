@@ -2,8 +2,6 @@
   font-family: 'Gamine';
   src: url(./fonts/Gamine.ttf);
   font-weight: normal;
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                              'embedded-opentype', and 'svg' */
 }
 
 * {
@@ -13,5 +11,9 @@
 
 .header p {
   font-family: "Century Gothic", sans-serif;
+}
+
+.progress-bar {
+  background-color: #FDFDFE !important;
 }
 /*# sourceMappingURL=app.css.map */

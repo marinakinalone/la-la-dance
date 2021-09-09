@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {questionsList} from './questions.js';
-const colors = ["#FF001E", "#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF"]
+const colors = ["#FF001E", "#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF",]
 {/* //!accessibility of contrasts to review!*/}
 
 class App extends React.Component{
@@ -42,7 +42,7 @@ class App extends React.Component{
         </button>
       ))}
 
-        <ProgressBar now={this.state.progress} />
+        <ProgressBar now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "4px"}}/>
         <Footer />
       </div>
     )
