@@ -1,48 +1,24 @@
 const questionsList = [
     {
     question: "What kind of music do you prefer?",
-    answerOne: "Latin",
-    scoreOne: [],
-    answerTwo: "Pop",
-    scoreTwo: [],
-    answerThree: "Jazz",
-    scoreThree: [],
-    answerFour: "Electro",
-    scoreFour: []
-    },
-    {
-    question: "What kind of beat do you like?",
-    answerOne: "Upbeat",
-    scoreOne: [],
-    answerTwo: "Walk-paced",
-    scoreTwo: [],
-    answerThree: "Slow",
-    scoreThree: [],
-    answerFour: "I like everything",
-    scoreFour: []
+    answers: ["Latin", "Pop", "Jazz", "Electro"],
+    score: 0
     },
     {
     question: "What kind of music do you prefer?",
-    answerOne: "Latin",
-    scoreOne: [],
-    answerTwo: "Pop",
-    scoreTwo: [],
-    answerThree: "Jazz",
-    scoreThree: [],
-    answerFour: "Electro",
-    scoreFour: []
+    answers: ["Latin", "Pop", "Jazz", "Electro"],
+    score: 0
     },
     {
-    question: "last",
-    answerOne: "Latin",
-    scoreOne: [],
-    answerTwo: "Pop",
-    scoreTwo: [],
-    answerThree: "Jazz",
-    scoreThree: [],
-    answerFour: "Electro",
-    scoreFour: []
-    }
+    question: "What kind of music do you prefer?",
+    answers: ["Latin", "Pop", "Jazz", "Electro"],
+    score: 0
+    },
+    {
+    question: "last question",
+    answers: ["Latin", "Pop", "Jazz", "Electro"],
+    score: 0
+    },
 ];
 
 

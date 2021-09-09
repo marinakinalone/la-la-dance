@@ -1,0 +1,32 @@
+//VARIABLES
+
+//colors
+
+//fonts
+
+@font-face {
+    font-family: 'Gamine';
+    src: url(./fonts/Gamine.ttf);
+    font-weight: normal;
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+}
+
+$gamine: "Gamine", sans-serif;
+$century: "Century Gothic", sans-serif;
+
+//########
+//STYLING
+
+//base
+* {
+    font-family: $gamine;
+    background-color: #1a1a30;
+    
+}
+
+.header {
+    p {
+      font-family: $century;
+    }
+  }
