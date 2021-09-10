@@ -13,6 +13,19 @@
   font-family: "Century Gothic", sans-serif;
 }
 
+.footer a {
+  color: #c4c4c4;
+}
+
+.footer a:hover {
+  color: #FDFDFE;
+}
+
+.footer a:focus, .footer a:active {
+  outline: 2px dashed #FDFDFE;
+  color: #FDFDFE;
+}
+
 .progress-bar {
   background-color: #FDFDFE !important;
 }
