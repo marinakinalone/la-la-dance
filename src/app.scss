@@ -22,7 +22,6 @@ $century: "Century Gothic", sans-serif;
 * {
     font-family: $gamine;
     background-color: #1a1a30;
-    
 }
 
 .header {
@@ -31,6 +30,19 @@ $century: "Century Gothic", sans-serif;
     }
   }
 
+.footer {
+  a {
+    color: rgb(196, 196, 196);
+    &:hover {
+      color: $white;
+    }
+    &:focus,
+    &:active {
+      outline: 2px dashed $white;
+      color: $white;
+    }
+  }
+}
   
 .progress-bar {
     background-color: $white !important;

@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {questionsList} from './questions.js';
-const colors = ["#FF001E", "#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF"]
-{/* //!accessibility of contrasts to review!*/}
+const colors = ["#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF"]
+
 
 class App extends React.Component{
   constructor(props) {
@@ -15,7 +15,7 @@ class App extends React.Component{
       questionNb: 0,
       progress: 5,
       score: 0,
-      color: colors[0],
+      color: "#fa3439",
       result: 'chachacha',
       displayTest: false,
       displayIntro: true,
@@ -43,7 +43,8 @@ class App extends React.Component{
     this.setState({
       displayTest: true,
       displayIntro: false,
-      displayResult: false
+      displayResult: false,
+      color: colors[0]
     })
   }
 
@@ -55,7 +56,7 @@ class App extends React.Component{
       questionNb: 0,
       progress: 5,
       score: 0,
-      color: colors[0],
+      color: "#fa3439",
       result: 'chachacha'
     })
   }
@@ -64,7 +65,8 @@ class App extends React.Component{
     this.setState({
       displayTest: false,
       displayIntro: false,
-      displayResult: true
+      displayResult: true,
+      color: "#fa3439"
     })
   }
 
@@ -166,7 +168,7 @@ class Header extends React.Component{
 class Footer extends React.Component{
   render() {
     return (
-      <footer>
+      <footer className="footer">
         <p className="copyright">Made while dancing by <a href="https://kinalone.dev" target="_blank" rel="noopener noreferrer">MKS</a> | <a href="../license.txt" target="_blank" rel="noopener noreferrer">license</a></p>
       </footer>
     )
