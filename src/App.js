@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import {questionsList} from './questions.js';
-const colors = ["#FF001E", "#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF",]
+const colors = ["#FF001E", "#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF"]
 {/* //!accessibility of contrasts to review!*/}
 
 class App extends React.Component{
@@ -18,13 +18,15 @@ class App extends React.Component{
       color: colors[0],
       result: 'chachacha',
       displayTest: false,
-      displayIntro: true
+      displayIntro: true,
+      displayResult: false
 
     }
 
     this.next = this.next.bind(this)
     this.handleClickToTest = this.handleClickToTest.bind(this)
     this.handleClickToIntro = this.handleClickToIntro.bind(this)
+    this.handleClickToResult = this.handleClickToResult.bind(this)
 
   }
 
@@ -40,21 +42,38 @@ class App extends React.Component{
   handleClickToTest() {
     this.setState({
       displayTest: true,
-      displayIntro: false
+      displayIntro: false,
+      displayResult: false
     })
   }
 
   handleClickToIntro() {
     this.setState({
       displayTest: false,
-      displayIntro: true
+      displayIntro: true,
+      displayResult: false,
+      questionNb: 0,
+      progress: 5,
+      score: 0,
+      color: colors[0],
+      result: 'chachacha'
+    })
+  }
+
+  handleClickToResult() {
+    this.setState({
+      displayTest: false,
+      displayIntro: false,
+      displayResult: true
     })
   }
 
 
-
   render() {
-    let mainContent = <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest}/>;
+    let mainContent;
+    if (this.state.displayIntro) {
+    mainContent = <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest}/>;
+    }
 
     if (this.state.displayTest) {
       mainContent = <div className="test">
@@ -68,9 +87,22 @@ class App extends React.Component{
       </div>
     }
 
-    // if (this.state.questionNb == (questionsList.length)) {
-    //   mainContent = <Result result={this.state.result} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
-    // }
+    if (this.state.questionNb === (questionsList.length - 1)) {
+      mainContent = <div className="test">
+      <Questionnaire question={questionsList[this.state.questionNb].question} />
+      {questionsList[this.state.questionNb].answers.map(answer => (
+      <button onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}}>
+        {answer}
+      </button>
+    ))}
+      <ProgressBar now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "4px"}}/>
+      </div>
+    }
+
+
+    if (this.state.displayResult) {
+      mainContent = <Result result={this.state.result} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
+    }
 
     return (
       <div style={{color: this.state.color}}>
