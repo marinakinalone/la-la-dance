@@ -4,7 +4,9 @@ import illustration from './resources/illus_lalaland.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-import {questionsList} from './questions.js';
+import {questionsList} from './questionsAndScoreHandling.js';
+import {updateScore} from './questionsAndScoreHandling.js';
+import {getFinalScore} from './questionsAndScoreHandling.js';
 const colors = ["#FF6200", "#00DFDC", "#FF2E8A", "#00FF7F", "#FFE641", "#F278FF"]
 
 
@@ -14,9 +16,15 @@ class App extends React.Component{
     this.state = {
       questionNb: 0,
       progress: 5,
-      score: 0,
+      score: {
+        "West Coast Swing": 0,
+        "Lindy Hop": 0,
+        "Salsa": 0,
+        "Brazilian Zouk": 0,
+        "Fusion": 0,
+        "Blues": 0,
+        "Argentine Tango": 0},
       color: "#fa3439",
-      result: 'chachacha',
       displayTest: false,
       displayIntro: true,
       displayResult: false
@@ -30,11 +38,12 @@ class App extends React.Component{
 
   }
 
-  next() {
+  next(event) {
     this.setState({ 
       questionNb: this.state.questionNb + 1,
       progress: ((this.state.questionNb + 1) * 100) / (questionsList.length - 1),
-      color: colors[this.state.questionNb + 1 ]
+      color: colors[this.state.questionNb + 1 ],
+      score: updateScore(this.state.questionNb, event.target.value, this.state.score)
     })
    
   }
@@ -55,21 +64,28 @@ class App extends React.Component{
       displayResult: false,
       questionNb: 0,
       progress: 5,
-      score: 0,
-      color: "#fa3439",
-      result: 'chachacha'
-    })
-  }
-
-  handleClickToResult() {
-    this.setState({
-      displayTest: false,
-      displayIntro: false,
-      displayResult: true,
+      score: {
+        "West Coast Swing": 0,
+        "Lindy Hop": 0,
+        "Salsa": 0,
+        "Brazilian Zouk": 0,
+        "Fusion": 0,
+        "Blues": 0,
+        "Argentine Tango": 0},
       color: "#fa3439"
     })
   }
 
+  handleClickToResult(event) {
+    this.setState({
+      displayTest: false,
+      displayIntro: false,
+      displayResult: true,
+      color: "#fa3439",
+      score: getFinalScore(this.state.questionNb, event.target.value, this.state.score)
+      
+    })
+  }
 
   render() {
     let mainContent;
@@ -81,7 +97,7 @@ class App extends React.Component{
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
       {questionsList[this.state.questionNb].answers.map(answer => (
-      <button onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}}>
+      <button onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
         {answer}
       </button>
     ))}
@@ -93,7 +109,7 @@ class App extends React.Component{
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
       {questionsList[this.state.questionNb].answers.map(answer => (
-      <button onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}}>
+      <button onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
         {answer}
       </button>
     ))}
@@ -103,7 +119,7 @@ class App extends React.Component{
 
 
     if (this.state.displayResult) {
-      mainContent = <Result result={this.state.result} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
+      mainContent = <Result score={this.state.score} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
     }
 
     return (
@@ -147,7 +163,7 @@ class Result extends React.Component {
     return (
       <div>
         <h2 style={this.props.color}>Your social dance style is: </h2>
-        <p className="result">{this.props.result}</p>
+        <p className="result">{this.props.score}</p>
         <button style={this.props.style} onClick={this.props.onClick}>take the questionnaire again</button>
       </div>
     )
