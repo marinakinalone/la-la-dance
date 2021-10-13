@@ -166,7 +166,7 @@ class Introduction extends React.Component {
       <div className="introduction">
         <div className="cta">
         <p>Find the social dance style that suits you best by answering this (not scientifically proven) questionnaire!</p>
-        <button style={this.props.style} onClick={this.props.onClick}>I want to dance</button>
+        <button className="intro-button" style={this.props.style} onClick={this.props.onClick}>I want to dance</button>
         </div>
         <figure>
         <img src={illustration} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></img>
@@ -180,10 +180,10 @@ class Introduction extends React.Component {
 class Result extends React.Component {
   render() {
     return (
-      <div>
+      <div className="result">
         <h2 style={this.props.color}>Your social dance style is: </h2>
-        <p className="result">{this.props.score}</p>
-        <button style={this.props.style} onClick={this.props.onClick}>take the questionnaire again</button>
+        <p>{this.props.score}</p>
+        <button className="intro-button" style={this.props.style} onClick={this.props.onClick}>take the questionnaire again</button>
       </div>
     )
   }

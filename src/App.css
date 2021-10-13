@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Gamine';
+  font-family: "Gamine";
   src: url(./resources/Gamine.ttf);
   font-weight: normal;
 }
@@ -35,12 +35,12 @@
 }
 
 .footer a:hover {
-  color: #FDFDFE;
+  color: #fdfdfe;
 }
 
 .footer a:focus, .footer a:active {
-  outline: 2px dashed #FDFDFE;
-  color: #FDFDFE;
+  outline: 2px dashed #fdfdfe;
+  color: #fdfdfe;
 }
 
 .introduction {
@@ -55,6 +55,23 @@
   text-align: center;
 }
 
+.introduction p {
+  font-family: "Century Gothic", sans-serif;
+  font-size: 1rem;
+}
+
+.introduction img {
+  max-width: 100%;
+  border: 0px solid red;
+  border-radius: 50px;
+}
+
+.introduction figcaption {
+  font-family: "Century Gothic", sans-serif;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .introduction {
     max-width: 70%;
@@ -64,6 +81,12 @@
 
 @media screen and (min-width: 1024px) {
   .introduction {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -45%);
+            transform: translate(-50%, -45%);
+    margin-right: -50%;
     margin-top: 0;
     min-width: 90%;
     -webkit-box-orient: horizontal;
@@ -79,8 +102,7 @@
   }
   .introduction p {
     padding: 0rem 2rem;
-    font-size: 2.5rem !important;
-    font-family: "Gamine", sans-serif !important;
+    font-size: 1.5rem !important;
     max-width: 100%;
   }
   .introduction button {
@@ -88,38 +110,34 @@
   }
 }
 
-.introduction p {
-  font-family: "Century Gothic", sans-serif;
+.result {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+  margin-right: -50%;
+  text-align: center;
+}
+
+.result p {
+  font-size: 2.5rem;
+}
+
+.result button {
   font-size: 1rem;
 }
 
-.introduction button {
-  margin-bottom: 1rem;
-  padding: 0rem 2rem;
-  max-width: 90%;
-  border-radius: 50px;
-  border-width: 2px;
-  font-size: 1.2rem;
-}
-
-.introduction button:hover {
-  -webkit-box-shadow: 0px 0px 15px 0px;
-          box-shadow: 0px 0px 15px 0px;
-  text-shadow: 0px 0px 15px;
-  border-color: #FDFDFE !important;
-  border-width: 2px;
-}
-
-.introduction img {
-  max-width: 100%;
-  border: 0px solid red;
-  border-radius: 50px;
-}
-
-.introduction figcaption {
-  font-family: "Century Gothic", sans-serif;
-  font-size: 0.7rem;
-  text-align: center;
+@media screen and (min-width: 768px) {
+  .result h2 {
+    font-size: 2rem;
+  }
+  .result p {
+    font-size: 4rem;
+  }
+  .result button {
+    font-size: 1.2rem;
+  }
 }
 
 .test {
@@ -163,8 +181,25 @@
   -webkit-box-shadow: 0px 0px 15px 0px;
           box-shadow: 0px 0px 15px 0px;
   text-shadow: 0px 0px 15px;
-  border-color: #FDFDFE !important;
+  border-color: #fdfdfe !important;
   border-width: 4px;
+}
+
+.intro-button {
+  margin-bottom: 1rem;
+  padding: 0rem 2rem;
+  max-width: 90%;
+  border-radius: 50px;
+  border-width: 2px;
+  font-size: 1.2rem;
+}
+
+.intro-button:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px;
+          box-shadow: 0px 0px 15px 0px;
+  text-shadow: 0px 0px 15px;
+  border-color: #fdfdfe !important;
+  border-width: 2px;
 }
 
 .progress {
@@ -174,6 +209,6 @@
 }
 
 .progress-bar {
-  background-color: #FDFDFE !important;
+  background-color: #fdfdfe !important;
 }
 /*# sourceMappingURL=app.css.map */

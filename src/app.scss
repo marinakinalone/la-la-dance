@@ -2,21 +2,21 @@
 
 //colors
 
-$white: #FDFDFE;
+$white: #fdfdfe;
 
 //fonts
 
 @font-face {
-    font-family: 'Gamine';
-    src: url(./resources/Gamine.ttf);
-    font-weight: normal;
+  font-family: "Gamine";
+  src: url(./resources/Gamine.ttf);
+  font-weight: normal;
 }
 
 $gamine: "Gamine", sans-serif;
 $century: "Century Gothic", sans-serif;
 
 //mixins
-@mixin tablet_min_width{
+@mixin tablet_min_width {
   @media screen and (min-width: 768px) {
     @content;
   }
@@ -33,8 +33,8 @@ $century: "Century Gothic", sans-serif;
 
 //base
 * {
-    font-family: $gamine;
-    background-color: #1a1a30;
+  font-family: $gamine;
+  background-color: #1a1a30;
 }
 
 .header {
@@ -68,28 +68,6 @@ $century: "Century Gothic", sans-serif;
 }
 
 .introduction {
-  @include tablet_min_width() {
-    max-width: 70%;
-    margin: 10% auto;
-  }
-  @include desktop_min_width() {
-    margin-top: 0;
-    min-width: 90%;
-    flex-direction: row;
-    align-items: center;
-    .cta {
-      max-width: 60%;
-    }
-    p {
-      padding: 0rem 2rem;
-      font-size: 2.5rem !important;
-      font-family: $gamine !important;
-      max-width: 100%;
-    }
-    button {
-      font-size: 2rem;
-    }
-  }
   display: flex;
   flex-direction: column;
   margin: 0 10%;
@@ -97,21 +75,6 @@ $century: "Century Gothic", sans-serif;
   p {
     font-family: $century;
     font-size: 1rem;
-  }
-  button {
-    margin-bottom: 1rem;
-    padding: 0rem 2rem;
-    max-width: 90%;
-    border-radius: 50px;
-    border-width: 2px;
-    font-size: 1.2rem;
-    &:hover {
-      box-shadow:  0px 0px 15px 0px;
-      text-shadow:  0px 0px 15px;
-      border-color: $white !important;
-      border-width: 2px;
-    
-    }
   }
   img {
     max-width: 100%;
@@ -122,6 +85,58 @@ $century: "Century Gothic", sans-serif;
     font-family: $century;
     font-size: 0.7rem;
     text-align: center;
+  }
+  @include tablet_min_width() {
+    max-width: 70%;
+    margin: 10% auto;
+  }
+  @include desktop_min_width() {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    margin-right: -50%;
+    margin-top: 0;
+    min-width: 90%;
+    flex-direction: row;
+    align-items: center;
+    .cta {
+      max-width: 60%;
+    }
+    p {
+      padding: 0rem 2rem;
+      font-size: 1.5rem !important;
+      max-width: 100%;
+    }
+    button {
+      font-size: 2rem;
+    }
+  }
+}
+
+.result {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  margin-right: -50%;
+  text-align: center;
+  p {
+    font-size: 2.5rem;
+  }
+  button {
+    font-size: 1rem;
+  }
+  @include tablet_min_width() {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 4rem;
+    }
+    button {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -154,13 +169,26 @@ $century: "Century Gothic", sans-serif;
   border-width: 4px;
   font-size: 1.2rem;
   &:hover {
-    box-shadow:  0px 0px 15px 0px;
-    text-shadow:  0px 0px 15px;
+    box-shadow: 0px 0px 15px 0px;
+    text-shadow: 0px 0px 15px;
     border-color: $white !important;
     border-width: 4px;
-    
   }
-  
+}
+
+.intro-button {
+  margin-bottom: 1rem;
+  padding: 0rem 2rem;
+  max-width: 90%;
+  border-radius: 50px;
+  border-width: 2px;
+  font-size: 1.2rem;
+  &:hover {
+    box-shadow: 0px 0px 15px 0px;
+    text-shadow: 0px 0px 15px;
+    border-color: $white !important;
+    border-width: 2px;
+  }
 }
 
 .progress {
@@ -169,5 +197,5 @@ $century: "Century Gothic", sans-serif;
   margin-right: 10px;
 }
 .progress-bar {
-    background-color: $white !important;
+  background-color: $white !important;
 }
