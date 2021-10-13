@@ -125,7 +125,7 @@
 }
 
 .result button {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -174,13 +174,13 @@
   margin: 0.5rem 0rem;
   border-radius: 50px;
   border-width: 4px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .answer-button:hover {
   -webkit-box-shadow: 0px 0px 15px 0px;
           box-shadow: 0px 0px 15px 0px;
-  text-shadow: 0px 0px 15px;
+  text-shadow: 0px 0px 10px;
   border-color: #fdfdfe !important;
   border-width: 4px;
 }

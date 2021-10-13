@@ -165,7 +165,7 @@ class Introduction extends React.Component {
     return (
       <div className="introduction">
         <div className="cta">
-        <p>Find the social dance style that suits you best by answering this (not scientifically proven) questionnaire!</p>
+        <p>Find the social dance style that suits you best by answering this (fun but in no way scientifically proven) questionnaire!</p>
         <button className="intro-button" style={this.props.style} onClick={this.props.onClick}>I want to dance</button>
         </div>
         <figure>

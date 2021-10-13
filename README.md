@@ -9,7 +9,9 @@ A fun (and not serious) personality test to find your social dance style.
 
 ## What's next to do?
 
- Work currently in progress
+- use a library (like Radium) for inline styles so that hovered buttons display the text in white with colored shadows. cf. https://stackoverflow.com/questions/28365233/inline-css-styles-in-react-how-to-implement-ahover
+- add dance video to results for curious people
+- add share buttons
  
 ## Team
 
