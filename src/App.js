@@ -28,8 +28,8 @@ class App extends React.Component{
         "Blues": 0,
         "Argentine Tango": 0},
       color: "#fa3439",
-      displayTest: true, /* !default state is false */
-      displayIntro: false, /* !default state is true */
+      displayTest: false, /* !default state is false */
+      displayIntro: true, /* !default state is true */
       displayResult: false /* !default state is false */
 
     }
@@ -96,7 +96,7 @@ class App extends React.Component{
     
     mainContent = <div>
       <Header />
-      <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest}/>
+      <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest} />
       <Footer />
     </div>
     }
@@ -104,7 +104,7 @@ class App extends React.Component{
     if (this.state.displayTest) {
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
-      <Container className="container-answers"> 
+      <Container> 
         {questionsList[this.state.questionNb].answers.map(answer => (
         <Row>
           <button className="answer-button" onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
@@ -120,7 +120,7 @@ class App extends React.Component{
     if (this.state.questionNb === (questionsList.length - 1)) {
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
-      <Container className="container-questions">
+      <Container>
       {questionsList[this.state.questionNb].answers.map(answer => (
         <Row>
           <button className="answer-button" onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
@@ -163,9 +163,11 @@ class Questionnaire extends React.Component {
 class Introduction extends React.Component {
   render() {
     return (
-      <div>
-        <p>description</p>
+      <div className="introduction">
+        <div className="cta">
+        <p>Find the social dance style that suits you best by answering this (not scientifically proven) questionnaire!</p>
         <button style={this.props.style} onClick={this.props.onClick}>I want to dance</button>
+        </div>
         <figure>
         <img src={illustration} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></img>
         <figcaption>source: wallpaperflare.com</figcaption>
