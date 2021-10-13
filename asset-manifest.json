@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/la-la-dance/static/css/main.c17a1d46.chunk.css",
+    "main.js": "/la-la-dance/static/js/main.bf6b7fd6.chunk.js",
+    "main.js.map": "/la-la-dance/static/js/main.bf6b7fd6.chunk.js.map",
+    "runtime-main.js": "/la-la-dance/static/js/runtime-main.12ad326a.js",
+    "runtime-main.js.map": "/la-la-dance/static/js/runtime-main.12ad326a.js.map",
+    "static/css/2.818011ed.chunk.css": "/la-la-dance/static/css/2.818011ed.chunk.css",
+    "static/js/2.b63ff4ec.chunk.js": "/la-la-dance/static/js/2.b63ff4ec.chunk.js",
+    "static/js/2.b63ff4ec.chunk.js.map": "/la-la-dance/static/js/2.b63ff4ec.chunk.js.map",
+    "static/js/3.6244e868.chunk.js": "/la-la-dance/static/js/3.6244e868.chunk.js",
+    "static/js/3.6244e868.chunk.js.map": "/la-la-dance/static/js/3.6244e868.chunk.js.map",
+    "index.html": "/la-la-dance/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/la-la-dance/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.c17a1d46.chunk.css.map": "/la-la-dance/static/css/main.c17a1d46.chunk.css.map",
+    "static/js/2.b63ff4ec.chunk.js.LICENSE.txt": "/la-la-dance/static/js/2.b63ff4ec.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/la-la-dance/static/media/Gamine.d3aef45b.ttf",
+    "static/media/illus_lalaland.5499b4d9.jpg": "/la-la-dance/static/media/illus_lalaland.5499b4d9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.12ad326a.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.b63ff4ec.chunk.js",
+    "static/css/main.c17a1d46.chunk.css",
+    "static/js/main.bf6b7fd6.chunk.js"
+  ]
+}
