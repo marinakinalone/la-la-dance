@@ -3,6 +3,9 @@ import './App.css';
 import illustration from './resources/illus_lalaland.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import {questionsList} from './questionsAndScoreHandling.js';
 import {updateScore} from './questionsAndScoreHandling.js';
@@ -25,9 +28,9 @@ class App extends React.Component{
         "Blues": 0,
         "Argentine Tango": 0},
       color: "#fa3439",
-      displayTest: false,
-      displayIntro: true,
-      displayResult: false
+      displayTest: true, /* !default state is false */
+      displayIntro: false, /* !default state is true */
+      displayResult: false /* !default state is false */
 
     }
 
@@ -90,43 +93,57 @@ class App extends React.Component{
   render() {
     let mainContent;
     if (this.state.displayIntro) {
-    mainContent = <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest}/>;
+    
+    mainContent = <div>
+      <Header />
+      <Introduction style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToTest}/>
+      <Footer />
+    </div>
     }
 
     if (this.state.displayTest) {
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
-      {questionsList[this.state.questionNb].answers.map(answer => (
-      <button onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
-        {answer}
-      </button>
-    ))}
-      <ProgressBar now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "4px"}}/>
+      <Container className="container-answers"> 
+        {questionsList[this.state.questionNb].answers.map(answer => (
+        <Row>
+          <button className="answer-button" onClick={this.next} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
+            {answer}
+         </button>
+        </Row>
+      ))}
+        <ProgressBar className="progress" now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "8px"}}/>  
+      </Container>
       </div>
     }
 
     if (this.state.questionNb === (questionsList.length - 1)) {
       mainContent = <div className="test">
       <Questionnaire question={questionsList[this.state.questionNb].question} />
+      <Container className="container-questions">
       {questionsList[this.state.questionNb].answers.map(answer => (
-      <button onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
-        {answer}
-      </button>
+        <Row>
+          <button className="answer-button" onClick={this.handleClickToResult} style={{color: this.state.color, borderColor: this.state.color}} value={answer}>
+            {answer}
+          </button>
+        </Row>
     ))}
-      <ProgressBar now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "4px"}}/>
+      <ProgressBar className="progress" now={this.state.progress} style={{backgroundColor: this.state.color, color: this.state.color, height: "8px"}}/>
+      </Container>
       </div>
     }
 
 
     if (this.state.displayResult) {
-      mainContent = <Result score={this.state.score} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
+      mainContent = <div>
+      <Result score={this.state.score} style={{color: this.state.color, borderColor: this.state.color}} onClick={this.handleClickToIntro}/>
+      <Footer />
+      </div>
     }
 
     return (
       <div style={{color: this.state.color}}>
-        <Header />
         {mainContent}
-        <Footer />
       </div>
     )
   }
@@ -137,7 +154,7 @@ class Questionnaire extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.props.question}</h2>  
+        <h2 className="question">{this.props.question}</h2>  
       </div>
     )
   }

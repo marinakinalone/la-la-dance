@@ -1,4 +1,4 @@
-//VARIABLES
+//VARIABLES & MIXINS
 
 //colors
 
@@ -15,6 +15,19 @@ $white: #FDFDFE;
 $gamine: "Gamine", sans-serif;
 $century: "Century Gothic", sans-serif;
 
+//mixins
+@mixin tablet_min_width{
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop_min_width {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 //########
 //STYLING
 
@@ -25,13 +38,24 @@ $century: "Century Gothic", sans-serif;
 }
 
 .header {
-    p {
-      font-family: $century;
-    }
+  padding: 0.5rem 1rem 2rem 1rem;
+  h1 {
+    font-size: 2.5rem;
   }
+  p {
+    margin-top: -0.5rem;
+    font-family: $century;
+    font-size: 0.9rem;
+  }
+}
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  min-width: 100%;
+  text-align: center;
   a {
+
     color: rgb(196, 196, 196);
     &:hover {
       color: $white;
@@ -43,7 +67,48 @@ $century: "Century Gothic", sans-serif;
     }
   }
 }
+
+.test {
+  padding: 0rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 95%;
+  @include tablet_min_width() {
+    min-width: 65%;
+  }
+  @include desktop_min_width() {
+    min-width: 50%;
+  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.question {
+  text-align: center;
+}
+
+.answer-button {
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  border-radius: 50px;
+  border-width: 4px;
+  &:hover {
+    box-shadow:  0px 0px 15px 0px;
+    text-shadow:  0px 0px 15px;
+    border-color: $white !important;
+    border-width: 4px;
+    
+  }
   
+}
+
+.progress {
+  margin-top: 1rem;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .progress-bar {
     background-color: $white !important;
 }
