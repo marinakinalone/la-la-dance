@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import {questionsList} from './questionsAndScoreHandling.js';
 import {updateScore} from './questionsAndScoreHandling.js';
