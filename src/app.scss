@@ -177,14 +177,8 @@ $century: "Century Gothic", sans-serif;
   
 }
 
-@media (hover: none) {
-  .answer-button {
-    padding: 1rem;
-    margin: 0.5rem 0rem;
-    border-radius: 50px;
-    border-width: 4px;
-    font-size: 1.3rem;
-  }
+html.nontouch button:hover{ /* hover effect only visible to devices that report back as not supporting touch */
+  background: yellow;
 }
 
 .intro-button {
