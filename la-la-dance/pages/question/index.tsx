@@ -15,19 +15,12 @@ const Home: NextPage = () => {
       </Head>
 
       <header className={styles.header}>
-        <h1 className={styles.header__title}>La La Dance</h1>
-        <p className={styles.header__quote}>"Dance, dance, otherwise we are lost" (Pina Bausch)</p>
+        <h1 className={styles.header__title}>Question</h1>
+    
       </header>
 
       <main className={styles.main}>
-        <figure>
-          <Image className={styles.main__img} src="/illus_lalaland.jpg" width={700} height={480} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></Image>
-          <figcaption className={styles.main__figcaption}>source: wallpaperflare.com</figcaption>
-        </figure> 
-        <section className={styles.main__cta}>
-            <p>Find the social dance style that suits you best!</p>
-            <Link href={'/question'}><a className={styles.main__link}>I want to dance</a></Link>
-        </section>
+      
       </main>
 
       <footer className={styles.footer}>

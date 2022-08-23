@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Gamine";
+    src: url('/asset/Gamine.ttf');
+    font-weight: normal;
+}
+
+$gamine: "Gamine", sans-serif;
+$century: "Century Gothic", sans-serif;
+
+$white: #fdfdfe;
+$red: #fa3439;
+
+//mixins
+@mixin tablet_min_width {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop_min_width {
+    @media screen and (min-width: 1024px) {
+      @content;
+    }
+  }

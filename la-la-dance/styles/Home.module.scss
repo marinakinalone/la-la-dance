@@ -1,0 +1,84 @@
+@import 'helpers';
+
+.header {
+    padding: 0.5rem 1rem 2rem 1rem;
+}
+
+.header__title {
+    font-size: 2.5rem;
+}
+
+.header__quote {
+    margin-top: -1rem;
+    font-family: $century;
+    font-size: 0.9rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    min-width: 100%;
+    text-align: center;
+    a {
+      color: rgb(196, 196, 196);
+      &:hover {
+        color: $white;
+      }
+      &:focus,
+      &:active {
+        outline: 2px dashed $white;
+        color: $white;
+      }
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1%;
+    text-align: center;
+    p {
+      font-family: $century;
+      font-size: 1rem;
+      margin: 0.5rem 10% 2rem 10%;
+    }
+    @include desktop_min_width() {
+    .main__cta {
+        margin-top: 1rem;
+    }
+    p {
+        font-size: 2rem;   
+    }
+    .main__link {
+        font-size: 2rem;
+      }
+    }
+}
+
+.main__link {
+    text-decoration: none;
+    font-family: $gamine;
+    color: $red;
+    border: 1px solid $red;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    border-width: 2px;
+    font-size: 1.2rem;
+    &:hover {
+      box-shadow: 0px 0px 15px 0px;
+      text-shadow: 0px 0px 15px;
+      border-color: $white !important;
+      border-width: 2px;
+    }
+  
+}
+
+.main__img {
+    border-radius: 50px;
+}
+
+.main__figcaption {
+    font-family: $century;
+    font-size: 0.7rem;
+    text-align: center;
+}

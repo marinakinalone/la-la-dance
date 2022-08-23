@@ -1,0 +1,20 @@
+@import 'helpers';
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $gamine;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  background-color: #111124;
+  color: #fa3439;
+}
+
