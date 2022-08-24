@@ -7,7 +7,7 @@ A fun (and not serious) personality test to find your social dance style.
 - CSS modules
 
 ## Deployment
-[coming](https://)
+[https://la-la-dance.vercel.app/](https://la-la-dance.vercel.app/)
 ## Installation
 
 ```bash
