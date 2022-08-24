@@ -3,7 +3,7 @@ export const getFinalScore = (results: any) => {
     let scores = Object.values(results);
     let highestScore = 0
     //find the highest score in the results object
-    scores.forEach(nb => {
+    scores.forEach((nb: any) => {
         if (nb > highestScore) {
             highestScore = nb
         }
