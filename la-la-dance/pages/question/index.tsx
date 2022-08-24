@@ -10,13 +10,14 @@ import { testData } from '../../helpers/testData';
 import { colors } from '../../helpers/colors';
 import { TestDataContent } from '../../ts-utils/interfaces';
 import Loader from '../../components/Loader';
-import { updateScore } from '../../helpers/updateScore';
+import { updatePoints } from '../../helpers/updateScore';
+import Router, { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<Array<TestDataContent>>([])
   const [questionNb, setQuestionNb] = useState(0);
-  const [score, setScore] = useState({
+  const [points, setPoints] = useState({
     "West Coast Swing": 0,
     "Lindy Hop": 0,
     "Salsa": 0,
@@ -36,11 +37,13 @@ const Home: NextPage = () => {
   }, [questionNb])
 
   const handleClick = (event:any) => {
+    event.preventDefault()
     const newQuestionNb = questionNb + 1
-    setQuestionNb(newQuestionNb)
-    const newScore = updateScore(testData, questionNb, event.target.value, score)
-    setScore(newScore)
-    console.log(score)
+    if (newQuestionNb !== testData.length) setQuestionNb(newQuestionNb)
+    const newScore = updatePoints(data[0], event.target.value, points)
+    setPoints(newScore)
+    console.log(points)
+    if (newQuestionNb === testData.length) Router.push('/result')
   }
 
 

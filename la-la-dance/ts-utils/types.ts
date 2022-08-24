@@ -1,3 +1,3 @@
 import { TestDataContent, Score } from './interfaces';
 
-export type UpdateScoreFunction = (questionsList: Array<TestDataContent>, questionNb: number, answer: number, results: any) => Score
+export type UpdatePointsFunction = (data: TestDataContent, answer: number, points: any) => Score
