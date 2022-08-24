@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   }, [questionNb])
 
   useEffect(() => {
-    const unloadCallback = (event) => {
+    const unloadCallback = (event: { preventDefault: () => void; returnValue: string; }) => {
       event.preventDefault();
       event.returnValue = "";
       return "";
@@ -50,6 +50,7 @@ const Home: NextPage = () => {
   const handleClick = (event:any) => {
     event.preventDefault()
     const newQuestionNb = questionNb + 1
+    setProgress((newQuestionNb * 100) / (testData.length - 1))
     if (newQuestionNb !== testData.length) setQuestionNb(newQuestionNb)
     const newScore = updatePoints(data[0], event.target.value, points)
     setPoints(newScore)
@@ -73,11 +74,14 @@ const Home: NextPage = () => {
             <h1 className={styles.question} style={{ color: colors[questionNb] }}>{data[0].question}</h1>
             <Container>
               {data[0].answers.map(answer => (
+                
                 <Row key={answer}>
                   <button className={styles.answer} onClick={(e) => handleClick(e)} style={{ color: colors[questionNb], borderColor: colors[questionNb] }} value={answer}>{answer}</button>
                 </Row>
+                
               ))
-              }
+            }
+            <ProgressBar className={styles.progress} now={progress} style={{backgroundColor: colors[questionNb], color: colors[questionNb], height: "8px"}}/>
             </Container>
           </>
         )}
