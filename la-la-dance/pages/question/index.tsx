@@ -29,9 +29,9 @@ const Home: NextPage = () => {
   useEffect(() => {
     setData([testData[questionNb]])
     console.log(data)
-    // setTimeout(() => {
-    //   setLoading(false)
-    // }, 1000)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
   }, [questionNb])
 
   const handleClick = (event) => {
