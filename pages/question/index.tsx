@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../../styles/Question.module.scss'
-import Link from 'next/link';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
