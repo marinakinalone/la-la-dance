@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { testData } from '../../helpers/testData';
 import { colors } from '../../helpers/colors';
 import { TestDataContent } from '../../ts-utils/interfaces';
+import Loader from '../../components/Loader';
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
@@ -28,9 +29,9 @@ const Home: NextPage = () => {
   useEffect(() => {
     setData([testData[questionNb]])
     console.log(data)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+    // setTimeout(() => {
+    //   setLoading(false)
+    // }, 1000)
   }, [questionNb])
 
   const handleClick = (event) => {
@@ -48,7 +49,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {loading ? (<p>loading</p>) : (
+        {loading ? (<Loader />) : (
           <>
             <h1 style={{ color: colors[questionNb] }}>{data[0].question}</h1>
             <Container>
