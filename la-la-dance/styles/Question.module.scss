@@ -1,4 +1,40 @@
 @import 'helpers';
 
+.main { 
+    padding: 0rem 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 95%;
+    @include tablet_min_width() {
+        min-width: 65%;
+    }
+    @include desktop_min_width() {
+        min-width: 50%;
+    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.question {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.answer {
+    padding: 1rem;
+    margin: 0.5rem 0rem;
+    border-radius: 50px;
+    border-width: 4px;
+    font-size: 1.3rem;
+    &:hover {
+      box-shadow: 0px 0px 15px 0px;
+      text-shadow: 0px 0px 10px;
+      border-color: $white !important;
+      border-width: 4px;
+    }
+    
+}
+  
 

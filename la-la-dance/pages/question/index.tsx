@@ -10,6 +10,7 @@ import { testData } from '../../helpers/testData';
 import { colors } from '../../helpers/colors';
 import { TestDataContent } from '../../ts-utils/interfaces';
 import Loader from '../../components/Loader';
+import { updateScore } from '../../helpers/updateScore';
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
@@ -28,16 +29,18 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     setData([testData[questionNb]])
-    console.log(data)
     setTimeout(() => {
       setLoading(false)
     }, 1500)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionNb])
 
-  const handleClick = (event) => {
-    setQuestionNb(questionNb + 1)
-    console.log(event.target.value)
-    return true
+  const handleClick = (event:any) => {
+    const newQuestionNb = questionNb + 1
+    setQuestionNb(newQuestionNb)
+    const newScore = updateScore(testData, questionNb, event.target.value, score)
+    setScore(newScore)
+    console.log(score)
   }
 
 
@@ -51,11 +54,11 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         {loading ? (<Loader />) : (
           <>
-            <h1 style={{ color: colors[questionNb] }}>{data[0].question}</h1>
+            <h1 className={styles.question} style={{ color: colors[questionNb] }}>{data[0].question}</h1>
             <Container>
               {data[0].answers.map(answer => (
                 <Row key={answer}>
-                  <button className={styles.btn__answer} onClick={(e) => handleClick(e)} style={{ color: colors[questionNb], borderColor: colors[questionNb] }} value={answer}>{answer}</button>
+                  <button className={styles.answer} onClick={(e) => handleClick(e)} style={{ color: colors[questionNb], borderColor: colors[questionNb] }} value={answer}>{answer}</button>
                 </Row>
               ))
               }

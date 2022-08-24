@@ -1,9 +1,9 @@
 import { UpdateScoreFunction } from '../ts-utils/types' 
 
-export const updateScore:UpdateScoreFunction = (testData, questionNb, answer, results) => {
+export const updateScore:UpdateScoreFunction = (testData, questionNb, answer, score) => {
     let keysToScore = testData[questionNb].score[answer];
     keysToScore.forEach((key: string | number) => {
-        results[key] = results[key] + 1
+        score[key] = score[key] + 1
     } )
-    return results
+    return score
 }
