@@ -1,4 +1,4 @@
-export const questionsList = [
+export const testData = [
     {
     question: "What kind of music do you prefer?",
     answers: ["Latin", "Pop", "Jazz", "Electro"],
