@@ -1,12 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../../styles/Result.module.scss'
+import styles from '../../styles/Home.module.scss'
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import Loader from '../../components/Loader';
 
 const Home: NextPage = () => {
+  const [loading, setLoading] = useState(true)
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  })
+  console.log(router.query.dance)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,14 +25,16 @@ const Home: NextPage = () => {
         <meta name="description" content="Find the social dance style that suits you best!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <header className={styles.header}>
-        <h1 className={styles.header__title}>La La Dance</h1>
-        <p className={styles.header__quote}>"Dance, dance, otherwise we are lost" (Pina Bausch)</p>
-      </header>
-
       <main className={styles.main}>
-        <h1>result</h1>
+        {loading? (
+          <Loader />
+        ):(
+          <section className={styles.result}>
+            <h1>Your social dance style is:</h1>
+            <p>{router.query.dance}</p>
+            <Link href={'/'}><a className={styles.main__link}>take the test again</a></Link>
+          </section>
+        )}
       </main>
 
       <footer className={styles.footer}>

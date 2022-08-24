@@ -33,14 +33,16 @@
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    margin: 0 1%;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     p {
       font-family: $century;
       font-size: 1rem;
-      margin: 0.5rem 10% 2rem 10%;
+      margin: 0.5rem 5% 2rem 5%;
     }
     @include desktop_min_width() {
     .main__cta {
@@ -103,4 +105,14 @@
     font-family: $century;
     font-size: 0.7rem;
     text-align: center;
+}
+
+.result {
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 3rem;
+        font-family: $gamine;
+    }
 }

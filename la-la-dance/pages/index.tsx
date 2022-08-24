@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <figure>
-          <Image className={styles.main__img} src="/illus_lalaland.jpg" width={700} height={480} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></Image>
+          <Image className={styles.main__img} src="/illus_lalaland.jpg" width={650} height={447} alt="extract from the movie La La Land where a woman with a yellow dress dances with a man with a black and white costume in front of a night-time landscape with blue and purple colors"></Image>
           <figcaption className={styles.main__figcaption}>source: wallpaperflare.com</figcaption>
         </figure> 
         <section className={styles.main__cta}>

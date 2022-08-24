@@ -11,7 +11,8 @@ import { colors } from '../../helpers/colors';
 import { TestDataContent } from '../../ts-utils/interfaces';
 import Loader from '../../components/Loader';
 import { updatePoints } from '../../helpers/updateScore';
-import Router, { useRouter } from 'next/router'
+import { getFinalScore } from '../../helpers/getFinalScore';
+import Router from 'next/router'
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
@@ -42,8 +43,10 @@ const Home: NextPage = () => {
     if (newQuestionNb !== testData.length) setQuestionNb(newQuestionNb)
     const newScore = updatePoints(data[0], event.target.value, points)
     setPoints(newScore)
-    console.log(points)
-    if (newQuestionNb === testData.length) Router.push('/result')
+    if (newQuestionNb === testData.length) Router.push({
+      pathname: '/result',
+      query: {dance: getFinalScore(newScore)},
+    })
   }
 
 
